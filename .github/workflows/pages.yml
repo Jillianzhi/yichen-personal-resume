@@ -1,0 +1,36 @@
+name: Publish resume site
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download public portfolio videos
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p assets/videos /tmp/public-media
+          gh release download media --repo "${{ github.repository }}" --dir /tmp/public-media
+          cat /tmp/public-media/cctv6-part-* > assets/videos/cctv6-movie-show.mp4
+          cat /tmp/public-media/comedy-partners-part-* > assets/videos/comedy-partners.mp4
+          cat /tmp/public-media/joy-of-life-event-part-* > assets/videos/joy-of-life-event.mp4
+          cp /tmp/public-media/chinese-talk.mp4 /tmp/public-media/world-cup-talk.mp4 assets/videos/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
