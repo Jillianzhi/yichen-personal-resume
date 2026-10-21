@@ -33,6 +33,7 @@ jobs:
           cat /tmp/public-media/giant-comedy-part-* > assets/videos/giant-comedy.mp4
           cat /tmp/public-media/glory-mission-part-* > assets/videos/glory-mission.mp4
           cat /tmp/public-media/upgrade-part-* > assets/videos/upgrade.mp4
+          cat /tmp/public-media/deep-love-part-* > assets/videos/deep-love.mp4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
