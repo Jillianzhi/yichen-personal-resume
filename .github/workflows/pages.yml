@@ -28,6 +28,8 @@ jobs:
           cat /tmp/public-media/comedy-partners-part-* > assets/videos/comedy-partners.mp4
           cat /tmp/public-media/joy-of-life-event-part-* > assets/videos/joy-of-life-event.mp4
           cp /tmp/public-media/chinese-talk.mp4 /tmp/public-media/world-cup-talk.mp4 assets/videos/
+          cat /tmp/public-media/empty-room-part-* > assets/videos/empty-room.mp4
+          cat /tmp/public-media/comedy-partners-scene-part-* > assets/videos/comedy-partners-scene.mp4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
