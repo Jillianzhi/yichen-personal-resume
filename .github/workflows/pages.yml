@@ -34,7 +34,7 @@ jobs:
           cat /tmp/public-media/glory-mission-part-* > assets/videos/glory-mission.mp4
           cat /tmp/public-media/upgrade-part-* > assets/videos/upgrade.mp4
           cat /tmp/public-media/deep-love-part-* > assets/videos/deep-love.mp4
-          cp /tmp/public-media/weni-impossible.jpg /tmp/public-media/actor-migrant-bird.png /tmp/public-media/actor-neural-storm.png assets/projects/
+          cp /tmp/public-media/weni-impossible.jpg /tmp/public-media/actor-migrant-bird.png /tmp/public-media/actor-neural-storm.png /tmp/public-media/aranya-waves.jpg assets/projects/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
